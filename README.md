@@ -1,5 +1,6 @@
-# Wagtail Kit
-Personal starter kit for Wagtail CMS projects
+# My Personal Website
+- Django + Wagtail.io
+- Docker
 
 ## Setup
 
