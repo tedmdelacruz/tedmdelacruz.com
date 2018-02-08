@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <div class="about-container">
+
+        <article class="article">
+            <div class="jumbotron">
+                <h2 class="article-title">{{ page.intro_lead }}</h2>
+                <div class="article-subtext">{{ page.intro_sub }}</div>
+            </div>
+            {{ page.intro_text|richtext }}
+        </article>
+
+        <hr class="divider"/>
+
+        <div class="skill-container">
+            <p><strong class="bordered">My main technical skills are</strong></p>
+            {{ page.skills|richtext }}
+        </div>
+
+        <div class="skill-container">
+            <p><strong class="bordered">I'm currently studying</strong></p>
+            {{ page.currently_studying|richtext }}
+        </div>
+
+        <div class="skill-container">
+            <p><strong class="bordered">My work tools are</strong></p>
+            {{ page.tools|richtext }}
+        </div>
+
+    </div>
+{% endblock %}

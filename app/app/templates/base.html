@@ -1,0 +1,97 @@
+{% load static wagtailuserbar %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js default-bg"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="og:url" content="http://tedmdelacruz.com">
+        <meta property="og:site_name" content="Ted Mathew dela Cruz :: Software Engineer">
+        <meta property="og:description" content="Hi, I'm Ted Mathew dela Cruz. I specialize in web applications development.">
+        <meta property="og:image" content="http://tedmdelacruz.com/img/desktop-thumb.JPG">
+
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/tedmdelacruz.css' %}">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+
+        <header class="header clearfix">
+            <div class="header-title">
+                <h1 class="name">
+                    <a href="/" class="name-link">
+                        <span class="dot-list">Ted Mathew dela Cruz</span><span class="dot-list">Software Engineer</span>
+                    </a>
+                </h1>
+            </div>
+            <nav class="nav">
+                <a class="nav-link dot-list" href="https://tedmdelacruz.github.io">Code</a>
+                <a class="nav-link dot-list" href="/portfolio">Portfolio</a>
+                <a class="nav-link dot-list" href="/contact">Contact</a>
+            </nav>
+        </header> 
+
+        <hr/>
+
+        <div class="content">
+
+            {% block content %}{% endblock %}
+            
+        </div>  
+
+        <hr/>
+        
+        <footer class="footer">
+            <div class="container">
+                <p class="soft-text copy">Ted Mathew dela Cruz &copy; 2018</p>
+                <p class="soft-text crafted">Crafted with ❤️ using <span class="nowrap"><a href="http://wagtail.io/">Wagtail.io</a></span></p>
+            </div>
+        </footer>
+
+        <script src="static/js/vendor/jquery-1.11.3.min.js"></script>
+        <script src="static/js/plugins.js"></script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-41852537-1', 'auto');
+            ga('send', 'pageview');
+
+            (function () {
+                console.error('What the hell are you doing here?');
+            }());
+        </script>
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/tedmdelacruz.js' %}"></script>
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>
+
