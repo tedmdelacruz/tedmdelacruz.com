@@ -1,3 +1,4 @@
 version: '3'
 services:
-  entrypoint: /code/bootstrap.sh
+  server:
+    entrypoint: /code/bootstrap.sh

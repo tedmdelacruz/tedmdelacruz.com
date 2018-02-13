@@ -5,6 +5,7 @@ from .base import *
 
 DEBUG = os.getenv('DEBUG', False)
 SECRET_KEY = os.getenv('SECRET_KEY')
+ALLOWED_HOSTS = ['tedmdelacruz.com']
 
 try:
     from .local import *
