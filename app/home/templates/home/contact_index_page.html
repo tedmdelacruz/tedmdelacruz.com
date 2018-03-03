@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>{{ page.header | richtext }}</h1>
+        <p>
+            <strong>Email:</strong>
+            <a href="mailto:{{ page.email }}">{{ page.email }}</a>
+        </p>
+        <p>
+            <strong>GitHub:</strong>
+            <a href="{{ page.github }}">{{ page.github }}</a>
+        </p>
+        <p>
+            <strong>LinkedIn:</strong>
+            <a href="{{ page.linkedin }}">{{ page.linkedin }}</a>
+        </p>
+    </div>
+{% endblock %}

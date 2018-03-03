@@ -6,6 +6,7 @@ from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 
+
 class HomePage(Page):
     intro_lead = models.CharField(blank=False, max_length=128, default="")
     intro_sub = models.CharField(blank=False, max_length=128, default="")
@@ -22,4 +23,18 @@ class HomePage(Page):
         FieldPanel('skills', classname="full intro-content"),
         FieldPanel('currently_studying', classname="full intro-content"),
         FieldPanel('tools', classname="full intro-content"),
+    ]
+
+
+class ContactIndexPage(Page):
+    header = RichTextField(blank=True)
+    email = models.EmailField(blank=False, max_length=256, default="")
+    github = models.CharField(blank=False, max_length=256, default="")
+    linkedin = models.CharField(blank=False, max_length=256, default="")
+
+    content_panels = Page.content_panels + [
+        FieldPanel('header'),
+        FieldPanel('email'),
+        FieldPanel('github'),
+        FieldPanel('linkedin'),
     ]
