@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>{{ page.header }}</h1>
+        {% for entry in portfolio_entries %}
+            <h3>{{ entry.title }}</h3>
+        {% endfor %}
+    </div>
+{% endblock %}
